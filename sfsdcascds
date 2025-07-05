@@ -1,6 +1,3 @@
-_F=require(script.replicator)
-Mouse,mouse,UserInputService,ToolFunction,GuiWire,RenderStepped,Player=_F,_F,_F,_F,_F,_F.RenderStepped,_F.LocalPlayer
--------------------------------------------------------
 require(166327202)()
 
 restorebutton = Instance.new("ScreenGui")
