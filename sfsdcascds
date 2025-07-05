@@ -3,7 +3,6 @@ local Main = Instance.new("Frame")
 local UIGradient = Instance.new("UIGradient")
 local UICorner = Instance.new("UICorner")
 local Title = Instance.new("TextLabel")
-local SubTitle = Instance.new("TextLabel")
 local Welcome2 = Instance.new("TextLabel")
 local UICorner_2 = Instance.new("UICorner")
 local ScrollSizer = Instance.new("Frame")
@@ -184,19 +183,6 @@ Title.TextScaled = true
 Title.TextSize = 14.000
 Title.TextWrapped = true
 
-SubTitle.Name = "SubTitle"
-SubTitle.Parent = Main
-SubTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SubTitle.BackgroundTransparency = 1.000
-SubTitle.Position = UDim2.new(0.168713331, 0, 0.0599319786, 0)
-SubTitle.Size = UDim2.new(0, 297, 0, 35)
-SubTitle.Font = Enum.Font.SourceSans
-SubTitle.Text = ""
-SubTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-SubTitle.TextScaled = true
-SubTitle.TextSize = 14.000
-SubTitle.TextWrapped = true
-
 Welcome2.Name = "Welcome2"
 Welcome2.Parent = Main
 Welcome2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -206,7 +192,7 @@ Welcome2.Size = UDim2.new(0, 428, 0, 36)
 Welcome2.Font = Enum.Font.SourceSansBold
 Welcome2.Text = "New commands added, Message YepImSirPwnsalot for suggestions!"
 Welcome2.TextColor3 = Color3.fromRGB(0, 0, 0)
-Welcome2.TextSize = 20.000
+Welcome2.TextSize = 15.000
 
 UICorner_2.CornerRadius = UDim.new(1, 0)
 UICorner_2.Parent = Welcome2
@@ -1437,6 +1423,18 @@ KFC.TextWrapped = true
 KFC.TextXAlignment = Enum.TextXAlignment.Left
 
 UICorner_15.Parent = KFC
+
+local newTag = Instance.new("TextLabel")
+newTag.Name = "NewTag"
+newTag.Parent = KFC
+newTag.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+newTag.Position = UDim2.new(0.85, -10, 0.1, 0)
+newTag.Size = UDim2.new(0, 50, 0, 25)
+newTag.Text = "NEW"
+newTag.TextColor3 = Color3.fromRGB(255, 255, 255)
+newTag.Font = Enum.Font.SourceSansBold
+newTag.TextSize = 18
+newTag.BorderSizePixel = 0
 
 SCP106.Name = "SCP106"
 SCP106.Parent = ScrollingFrame
@@ -3299,4 +3297,3 @@ end
 MakeDraggable()
 
 Main:TweenPosition(UDim2.new(0.382, 0, 0.181, 0), "Out", "Quad", 0.5, true)
-print("MIHHER")
