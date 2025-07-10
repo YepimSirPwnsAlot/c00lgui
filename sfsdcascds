@@ -2444,7 +2444,7 @@ AntiFling.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 AntiFling.Position = UDim2.new(0.0245891828, 0, 0.915730357, 0)
 AntiFling.Size = UDim2.new(0, 305, 0, 35)
 AntiFling.Font = Enum.Font.SourceSans
-AntiFling.Text = "Player"
+AntiFling.Text = ""
 AntiFling.TextColor3 = Color3.fromRGB(0, 0, 0)
 AntiFling.TextSize = 25
 
@@ -2502,6 +2502,18 @@ subtext.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
 subtext.TextStrokeTransparency = 0
 subtext.TextScaled = true
 
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local Main = Main or script.Parent:WaitForChild("Main")
+local OpenUtg = OpenUtg or Main:WaitForChild("OpenUtg")
+local subtext = subtext or Main:WaitForChild("subtext")
+local AntiFling = AntiFling or Main:WaitForChild("AntiFling")
+local UltimateTrollingGuiV6 = UltimateTrollingGuiV6 or Main:WaitForChild("UltimateTrollingGuiV6")
+
 task.spawn(function()
 	local colors = {
 		Color3.fromRGB(255, 0, 0),
@@ -2524,7 +2536,7 @@ task.spawn(function()
 			local lerped = currentColor:Lerp(nextColor, step)
 			OpenUtg.TextStrokeColor3 = lerped
 			subtext.TextStrokeColor3 = lerped
-			wait(0.03)
+			RunService.RenderStepped:Wait()
 		end
 
 		currentIndex = nextIndex
@@ -2532,7 +2544,7 @@ task.spawn(function()
 	end
 end)
 
-AntiFling.Text = game.Players.LocalPlayer.Name
+AntiFling.Text = player.Name
 
 AntiFling.FocusLost:Connect(function()
 	if AntiFling.Text == "Disable" then
@@ -2540,30 +2552,43 @@ AntiFling.FocusLost:Connect(function()
 		return
 	end
 
-	for _, player in pairs(game.Players:GetPlayers()) do
-		if string.find(player.Name:lower(), AntiFling.Text:lower()) then
-			AntiFling.Text = player.Name
+	for _, p in ipairs(Players:GetPlayers()) do
+		if string.find(p.Name:lower(), AntiFling.Text:lower()) then
+			AntiFling.Text = p.Name
 			break
 		end
 	end
 end)
 
+local plr = game.Players.LocalPlayer
+
+plr.Chatted:Connect(function(msg)
+	if msg:lower() == "/open utg" then
+		if Main.Visible == true then
+			Main.Visible = false
+		else
+			wait(2.5)
+			Main.Visible = true
+		end
+	end
+end)
+
 local function MakeDraggable()
-	local UIS = game:GetService('UserInputService')
 	local frame = Main
 	local dragToggle = false
-	local dragSpeed = 0.25
 	local dragStart = nil
 	local startPos = nil
+	local dragSpeed = 0.25
 
 	local function updateInput(input)
 		local delta = input.Position - dragStart
-		local position = UDim2.new(
+		local newPos = UDim2.new(
 			startPos.X.Scale, startPos.X.Offset + delta.X,
 			startPos.Y.Scale, startPos.Y.Offset + delta.Y
 		)
-		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+		TweenService:Create(frame, TweenInfo.new(dragSpeed), {Position = newPos}):Play()
 	end
+
 	frame.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 			dragToggle = true
@@ -2578,11 +2603,12 @@ local function MakeDraggable()
 		end
 	end)
 
-	UIS.InputChanged:Connect(function(input)
-		if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) and dragToggle then
+	UserInputService.InputChanged:Connect(function(input)
+		if dragToggle and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
 			updateInput(input)
 		end
 	end)
 end
+
 MakeDraggable()
 Main:TweenPosition(UDim2.new(0.382, 0, 0.181, 0), "Out", "Quad", 0.5, true)
