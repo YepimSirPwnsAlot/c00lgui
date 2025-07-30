@@ -40,7 +40,7 @@ local FixedStuff = Instance.new("TextButton")
 local UICorner_18 = Instance.new("UICorner")
 local InfGaunt = Instance.new("TextButton")
 local UICorner_19 = Instance.new("UICorner")
-local mrbyebye = Instance.new("TextButton")
+local DemonClaws = Instance.new("TextButton")
 local UICorner_20 = Instance.new("UICorner")
 local chopchop = Instance.new("TextButton")
 local UICorner_21 = Instance.new("UICorner")
@@ -72,7 +72,7 @@ local AK47 = Instance.new("TextButton")
 local UICorner_34 = Instance.new("UICorner")
 local Car = Instance.new("TextButton")
 local UICorner_35 = Instance.new("UICorner")
-local Carnage = Instance.new("TextButton")
+local Chillingo = Instance.new("TextButton")
 local UICorner_36 = Instance.new("UICorner")
 local MLG = Instance.new("TextButton")
 local UICorner_37 = Instance.new("UICorner")
@@ -90,7 +90,7 @@ local Misc = Instance.new("TextButton")
 local UICorner_43 = Instance.new("UICorner")
 local Zeroith = Instance.new("TextButton")
 local UICorner_44 = Instance.new("UICorner")
-local OrangeJustice = Instance.new("TextButton")
+local FencingRestore = Instance.new("TextButton")
 local UICorner_45 = Instance.new("UICorner")
 local InsanityPowers = Instance.new("TextButton")
 local UICorner_46 = Instance.new("UICorner")
@@ -157,11 +157,13 @@ UltimateTrollingGuiV6.ResetOnSpawn = true
 
 Main.Name = "Main"
 Main.Parent = UltimateTrollingGuiV6
+Main.Active = true
+Main.Draggable = true
 Main.BackgroundColor3 = Color3.fromRGB(137, 0, 254)
 Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.382268965, 0, 1.18099999, 0)
 Main.Size = UDim2.new(0, 451, 0, 525)
-Main.Visible = true
+Main.Visible = false
 
 UICorner.Parent = Main
 UICorner.CornerRadius = UDim.new(0, 18)
@@ -186,7 +188,7 @@ Welcome2.BorderSizePixel = 0
 Welcome2.Position = UDim2.new(0.0245891828, 0, 0.114000015, 0)
 Welcome2.Size = UDim2.new(0, 428, 0, 36)
 Welcome2.Font = Enum.Font.SourceSans
-Welcome2.Text = "Use keyboard keys for commands (X,Z,C,V,F,Q,E, etc)."
+Welcome2.Text = "Gonna add more things soon."
 Welcome2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Welcome2.TextSize = 14
 Welcome2.TextWrapped = true
@@ -308,98 +310,6 @@ TheDankEngine.TextColor3 = Color3.fromRGB(255, 255, 255)
 TheDankEngine.TextSize = 20.000
 TheDankEngine.TextWrapped = true
 TheDankEngine.TextXAlignment = Enum.TextXAlignment.Left
-TheDankEngine.MouseButton1Down:Connect(function()
--- ty krystalburger
---[[
-    Thomas The Dank Engine:
-                            By: KrystalTeam
-                            Features: Being a dank engine that kill people
-                            Version: 1.0.0.2
---]]
-
-local p = game.Players.LocalPlayer.Character
-
-local weld = Instance.new("Weld",p.Humanoid.Torso)
-weld.Part0 = p.Humanoid.Torso
-
-local train = Instance.new("Part",p.Humanoid.Torso)
-train.Anchored = true
-train.CanCollide = false
-train.Size = Vector3.new(3,2,6)
-train.CustomPhysicalProperties = PhysicalProperties.new(0,0,0,0,0)
-weld.Part1 = train
-weld.C1 = CFrame.new(0,0,0) * CFrame.Angles(0,math.rad(180),0)
-train.Anchored = false
-local TrainMesh = Instance.new("SpecialMesh",train)
-TrainMesh.MeshType = Enum.MeshType.FileMesh
-TrainMesh.Scale = Vector3.new(0.020,0.020,0.015)
-TrainMesh.MeshId = "rbxassetid://431017802"
-TrainMesh.TextureId = "rbxassetid://431017809"
-
-
-local weld2 = Instance.new("Weld",p.Humanoid.Torso)
-weld2.Part0 = p.Humanoid.Torso
-local Smoke = Instance.new("Part",p.Humanoid.Torso)
-Smoke.Anchored = true
-Smoke.CanCollide = false
-Smoke.Size = Vector3.new(1,1,1)
-Smoke.CustomPhysicalProperties = PhysicalProperties.new(0,0,0,0,0)
-weld2.Part1 = Smoke
-weld2.C1 = CFrame.new(0,-4,3.5)-- * CFrame.Angles(0,math.rad(180),0)
-Smoke.Anchored = false
-Smoke.Transparency = 1;
-
-local Particle = Instance.new("ParticleEmitter",Smoke)
-Particle.Rate = 50;
-Particle.Speed = NumberRange.new(30,60);
-Particle.VelocitySpread = 4;
-Particle.Texture = "rbxassetid://133619974"
-
-local Light = Instance.new("SpotLight",train)
-Light.Angle = 45;
-Light.Brightness = 100;
-Light.Face = Enum.NormalId.Back;
-Light.Range = 30;
-
-p.Humanoid.WalkSpeed = 20;
-
-
-for i,v in pairs(p:GetChildren()) do
-    if v:IsA("Part") then
-        v.Transparency = 1;
-    elseif v:IsA("Hat") then
-        v:Destroy()
-    elseif v:IsA("Model") then
-        v:Destroy()
-    end
-end
-
-local function SFX(id) local s=Instance.new("Sound",p.Humanoid.Torso); s.SoundId = "rbxassetid://"..id; s.Volume = 1; return s; end
-train.Touched:connect(function(p)
-    if p.Parent then
-        if p.Parent:IsA("Model") then
-            if game.Players:FindFirstChild(p.Parent.Name) then
-                if p.Parent.Name ~= game.Players.LocalPlayer.Name then
-                    game.Players:FindFirstChild(p.Parent.Name).Character:BreakJoints()
-                    local Whistle = SFX(604650009)
-                    Whistle:Play()
-                end
-            end
-        end
-    end
-end)
-local sound   = Instance.new("Sound")
-sound.SoundId = "http://www.roblox.com/asset/?id=198482531" --Change the last numbers of the link to the id of your audio.
-sound.Parent  = game.Workspace
-sound.Volume  = 200
-sound.Looped  = true
-sound:play()
-repeat wait() until game.Players.LocalPlayer
-local Mouse = game.Players.LocalPlayer:GetMouse()
-local Plr = game.Players.LocalPlayer
-Plr.Character.Humanoid.MaxHealth = math.huge 
-Plr.Character.Humanoid.WalkSpeed = 100
-end)
 
 UICorner_6.Parent = TheDankEngine
 
@@ -530,185 +440,6 @@ HolyWrench.TextColor3 = Color3.fromRGB(255, 255, 255)
 HolyWrench.TextSize = 20.000
 HolyWrench.TextWrapped = true
 HolyWrench.TextXAlignment = Enum.TextXAlignment.Left
-HolyWrench.MouseButton1Down:Connect(function()
-script.Parent = workspace.CurrentCamera
-local plr = game:GetService("Players").LocalPlayer
-
-local tool = Instance.new("Tool",plr:WaitForChild("Backpack"))
-tool.Grip = CFrame.new(0,-0.8,-0.2) * CFrame.Angles(math.rad(0),math.rad(180),math.rad(0))
-tool.Name = "Teh Wrench"
-
-local part = Instance.new("Part",tool)
-part.Name = "Handle"
-part.Size = Vector3.new(4,6,4)
-part.TopSurface = "Smooth"
-part.BottomSurface = "Smooth"
-part.CanCollide = false
-part:BreakJoints()
-
-local mesh = Instance.new("SpecialMesh",part)
-mesh.MeshId = "rbxassetid://431003868" --mesh.MeshId = "rbxassetid://132920499"
-mesh.TextureId = "rbxassetid://430627740" --"http://www.roblox.com/asset/?id=134479421"
-mesh.Scale = Vector3.new(2,2,2)
-
-local sound = Instance.new("Sound",part)
-sound.SoundId = "rbxassetid://138093488"
-sound.Volume = 3
-
-local sound2 = Instance.new("Sound",part)
-sound2.SoundId = "rbxassetid://280667448"
-sound2.Volume = 5
-
-local sound3 = Instance.new("Sound",part)
-sound3.SoundId = "rbxassetid://130934652"
-sound3.Pitch = 0.9
-sound3.Volume = 10
-
-local sound4 = Instance.new("Sound",part)
-sound4.SoundId = "rbxassetid://258057783"
-sound4.Volume = 10
-
-local sound5 = Instance.new("Sound",part)
-sound5.SoundId = "rbxassetid://138093488"
-sound5.Volume = 50
-
-local sound6 = Instance.new("Sound",part)
-sound6.SoundId = "rbxassetid://906084456"
-sound6.Volume = 10
-sound6.TimePosition = 2
-
-function firstHum(target)
-	for i,v in pairs(target:GetChildren()) do
-		if v:IsA("Humanoid") then
-			return v
-		end
-	end
-	return nil
-end
-
-local slap = false
-local cd = false
-
-plr:GetMouse().Button1Down:connect(function()
-	if tool.Parent == plr.Character then
-		if slap == false then
-			slap = true
-			sound2:Play()
-			local str = Instance.new("StringValue")
-			str.Name = "toolanim"
-			str.Value = "Slash"
-			str.Parent = tool
-			wait(1)
-			slap = false
-		end
-	end
-end)
-
-part.Touched:connect(function(hit)
-	if slap == true then
-		if cd == false then
-			if not hit:IsDescendantOf(plr.Character) then
-				if hit.Parent:IsA("Model") then
-					local fhum = firstHum(hit.Parent)
-					if fhum then
-						cd = true
-						fhum.PlatformStand = true
-						sound:Play()
-						local con1
-						con1 = game:GetService("RunService").Heartbeat:connect(function()
-							fhum.PlatformStand = true
-						end)
-						wait(0.1)
-						local vel = Instance.new("BodyVelocity",hit)
-						vel.Velocity = ((hit.Position - plr.Character:WaitForChild("HumanoidRootPart").Position).unit + Vector3.new(0,0.5,0))*50
-						vel.MaxForce = Vector3.new(10000000,10000000,10000000)
-						wait(1)
-						cd = false
-						vel:Destroy()
-						local vel2 = Instance.new("BodyVelocity",hit)
-						vel2.Velocity = Vector3.new(0,12.5,0)
-						vel2.MaxForce = Vector3.new(10000000,10000000,10000000)
-						local p2 = Instance.new("Part",hit)
-						p2.Anchored = true
-						p2.Transparency = 0.6
-						p2.CanCollide = false
-						p2.Size = Vector3.new(0.2,0.2,0.2)
-						p2.CFrame = CFrame.new(hit.CFrame.p) * CFrame.Angles(math.rad(0),math.rad(90),math.rad(0))
-						p2.BrickColor = BrickColor.new("New Yeller")
-						p2.Material = "Neon"
-						local m2 = Instance.new("CylinderMesh",p2)
-						m2.Scale = Vector3.new(60,10000,60)
-						local scln = sound3:Clone()
-						scln.Parent = hit
-						scln:Play()
-						local con2
-						con2 = game:GetService("RunService").Heartbeat:connect(function()
-							p2.CFrame = CFrame.new(hit.CFrame.p) * CFrame.Angles(math.rad(0),math.rad(90),math.rad(0))
-						end)
-						wait(7)
-						vel2.Velocity = Vector3.new(0,0,0)
-						wait(0.5)
-						scln:Stop()
-						local scln3 = sound5:Clone()
-						scln3.Parent = hit
-						scln3:Play()
-						wait(1)
-						local bav = Instance.new("BodyAngularVelocity",hit)
-						bav.AngularVelocity = Vector3.new(math.random(0,360),math.random(0,360),math.random(0,360))
-						vel2.Velocity = Vector3.new(0,-250,0)
-						p2.BrickColor = BrickColor.new("Really red")
-						local scln6 = sound6:Clone()
-						scln6.Parent = hit
-						scln6:Play()
-						local continue = false
-						local htc
-						htc = hit.Touched:connect(function(hitp)
-							if not hitp:IsDescendantOf(hit.Parent) then
-								continue = true
-								scln6:Stop()
-								vel2:Destroy()
-								con2:Disconnect()
-								con1:Disconnect()
-								htc:Disconnect()
-								p2:Destroy()
-							end
-						end)
-						repeat wait() until continue == true
-						local ctab = {}
-						for i=1,4 do
-							local p = Instance.new("Part",hit)
-							p.Size = Vector3.new(30,30,30)
-							p.Anchored = true
-							p.CanCollide = false
-							p.TopSurface = "Smooth"
-							p.BottomSurface = "Smooth"
-							p.Color = Color3.fromRGB(255,math.random(0,255),0)
-							p.CFrame = hit.CFrame
-							local con
-							con = game:GetService("RunService").Heartbeat:connect(function()
-								p.CFrame = p.CFrame * CFrame.Angles(math.rad(math.random(0,360)),math.rad(math.random(0,360)),math.rad(math.random(0,360)))
-								p.Transparency = p.Transparency + 0.01
-								if p.Transparency >= 1 then
-									con:Disconnect()
-								end
-							end)
-							table.insert(ctab,con)
-						end	
-						Instance.new("Explosion",workspace).Position = hit.Position
-						local scln2 = sound4:Clone()
-						scln2.Parent = hit
-						scln2:Play()
-						vel2:Destroy()
-						hit.Parent:BreakJoints()
-						repeat wait() until not hit:IsDescendantOf(workspace)
-						con2:Disconnect()
-					end
-				end
-			end
-		end
-	end
-end)
-end)
 
 UICorner_11.Parent = HolyWrench
 
@@ -771,175 +502,6 @@ FlingGUI.TextColor3 = Color3.fromRGB(255, 255, 255)
 FlingGUI.TextSize = 20.000
 FlingGUI.TextWrapped = true
 FlingGUI.TextXAlignment = Enum.TextXAlignment.Left
-FlingGUI.MouseButton1Down:Connect(function()
-local lp = game:FindService("Players").LocalPlayer
-
-local function gplr(String)
-	local Found = {}
-	local strl = String:lower()
-	if strl == "all" then
-		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
-			table.insert(Found,v)
-		end
-	elseif strl == "others" then
-		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
-			if v.Name ~= lp.Name then
-				table.insert(Found,v)
-			end
-		end 
-	elseif strl == "me" then
-		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
-			if v.Name == lp.Name then
-				table.insert(Found,v)
-			end
-		end 
-	else
-		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
-			if v.Name:lower():sub(1, #String) == String:lower() then
-				table.insert(Found,v)
-			end
-		end 
-	end
-	return Found 
-end
-
-local function notif(str,dur)
-	game:FindService("StarterGui"):SetCore("SendNotification", {
-		Title = "yeet gui",
-		Text = str,
-		Icon = "rbxassetid://2005276185",
-		Duration = dur or 3
-	})
-end
-
---// sds
-
-local h = Instance.new("ScreenGui")
-local Main = Instance.new("ImageLabel")
-local Top = Instance.new("Frame")
-local Title = Instance.new("TextLabel")
-local TextBox = Instance.new("TextBox")
-local TextButton = Instance.new("TextButton")
-
-h.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-h.ResetOnSpawn = false
-
-Main.Name = "Main"
-Main.Parent = h
-Main.Active = true
-Main.Draggable = true
-Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Main.BorderSizePixel = 0
-Main.Position = UDim2.new(0.174545452, 0, 0.459574461, 0)
-Main.Size = UDim2.new(0, 454, 0, 218)
-Main.Image = "rbxassetid://2005276185"
-
-Top.Name = "Top"
-Top.Parent = Main
-Top.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
-Top.BorderSizePixel = 0
-Top.Size = UDim2.new(0, 454, 0, 44)
-
-Title.Name = "Title"
-Title.Parent = Top
-Title.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-Title.BorderSizePixel = 0
-Title.Position = UDim2.new(0, 0, 0.295454562, 0)
-Title.Size = UDim2.new(0, 454, 0, 30)
-Title.Font = Enum.Font.SourceSans
-Title.Text = "FE Yeet Gui (trollface edition)"
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title.TextScaled = true
-Title.TextSize = 14.000
-Title.TextWrapped = true
-
-TextBox.Parent = Main
-TextBox.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-TextBox.BorderSizePixel = 0
-TextBox.Position = UDim2.new(0.0704845786, 0, 0.270642221, 0)
-TextBox.Size = UDim2.new(0, 388, 0, 62)
-TextBox.Font = Enum.Font.SourceSans
-TextBox.PlaceholderText = "Who do i destroy?(can be shortened)"
-TextBox.Text = ""
-TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.TextScaled = true
-TextBox.TextSize = 14.000
-TextBox.TextWrapped = true
-
-TextButton.Parent = Main
-TextButton.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.10352423, 0, 0.596330225, 0)
-TextButton.Size = UDim2.new(0, 359, 0, 50)
-TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "Cheese em'"
-TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.TextScaled = true
-TextButton.TextSize = 14.000
-TextButton.TextWrapped = true
-
-TextButton.MouseButton1Click:Connect(function()
-	local Target = gplr(TextBox.Text)
-	if Target[1] then
-		Target = Target[1]
-		
-		local Thrust = Instance.new('BodyThrust', lp.Character.HumanoidRootPart)
-		Thrust.Force = Vector3.new(9999,9999,9999)
-		Thrust.Name = "YeetForce"
-		repeat
-			lp.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
-			Thrust.Location = Target.Character.HumanoidRootPart.Position
-			game:FindService("RunService").Heartbeat:wait()
-		until not Target.Character:FindFirstChild("Head")
-	else
-		notif("Invalid player")
-	end
-end)
-
---//fsddfsdf
-notif("Loaded successfully! Created by scuba#0001", 5)
-
--- Dragging functionality
-local UIS = game:GetService("UserInputService")
-local dragging
-local dragInput
-local dragStart
-local startPos
-
-local function update(input)
-	local delta = input.Position - dragStart
-	Main.Position = UDim2.new(
-		startPos.X.Scale, startPos.X.Offset + delta.X,
-		startPos.Y.Scale, startPos.Y.Offset + delta.Y
-	)
-end
-
-Top.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		dragging = true
-		dragStart = input.Position
-		startPos = Main.Position
-
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
-		end)
-	end
-end)
-
-Top.InputChanged:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-		dragInput = input
-	end
-end)
-
-UIS.InputChanged:Connect(function(input)
-	if input == dragInput and dragging then
-		update(input)
-	end
-end)
-end)
 
 UICorner_13.Parent = FlingGUI
 
@@ -1039,7 +601,7 @@ ChainSaw.BackgroundColor3 = Color3.fromRGB(250, 128, 114)
 ChainSaw.Position = UDim2.new(0.0093457941, 0, 0.215290248, 0)
 ChainSaw.Size = UDim2.new(0, 419, 0, 36)
 ChainSaw.Font = Enum.Font.SourceSansBold
-ChainSaw.Text = "    Insane Friggin Chainsaw (Warning: Very Ep1kal"
+ChainSaw.Text = "    Insane Friggin Chainsaw"
 ChainSaw.TextColor3 = Color3.fromRGB(255, 255, 255)
 ChainSaw.TextSize = 20.000
 ChainSaw.TextWrapped = true
@@ -1652,26 +1214,23 @@ newTag.Font = Enum.Font.SourceSansBold
 newTag.TextSize = 20
 newTag.BorderSizePixel = 0
 
-mrbyebye.Name = "mrbyebye"
-mrbyebye.Parent = ScrollingFrame
-mrbyebye.BackgroundColor3 = Color3.fromRGB(250, 128, 114)
-mrbyebye.Position = UDim2.new(0.00934579596, 0, 0.276674956, 0)
-mrbyebye.Size = UDim2.new(0, 419, 0, 36)
-mrbyebye.Font = Enum.Font.SourceSansBold
-mrbyebye.Text = "    Mr.ByeBye"
-mrbyebye.TextColor3 = Color3.fromRGB(255, 255, 255)
-mrbyebye.TextSize = 20.000
-mrbyebye.TextWrapped = true
-mrbyebye.TextXAlignment = Enum.TextXAlignment.Left
-mrbyebye.MouseButton1Down:Connect(function()
-	loadstring(Game:GetObjects("rbxassetid://2595582545")[1].Source)()
-end)
+DemonClaws.Name = "DemonClaws"
+DemonClaws.Parent = ScrollingFrame
+DemonClaws.BackgroundColor3 = Color3.fromRGB(250, 128, 114)
+DemonClaws.Position = UDim2.new(0.00934579596, 0, 0.276674956, 0)
+DemonClaws.Size = UDim2.new(0, 419, 0, 36)
+DemonClaws.Font = Enum.Font.SourceSansBold
+DemonClaws.Text = "    Demon Claws"
+DemonClaws.TextColor3 = Color3.fromRGB(255, 255, 255)
+DemonClaws.TextSize = 20.000
+DemonClaws.TextWrapped = true
+DemonClaws.TextXAlignment = Enum.TextXAlignment.Left
 
-UICorner_20.Parent = mrbyebye
+UICorner_20.Parent = DemonClaws
 
 local newTag = Instance.new("TextLabel")
 newTag.Name = "NewTag"
-newTag.Parent = mrbyebye
+newTag.Parent = DemonClaws
 newTag.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
 newTag.Position = UDim2.new(0.85, -10, 0.1, 0)
 newTag.Size = UDim2.new(0, 55, 0, 29)
@@ -1962,7 +1521,7 @@ Sniper.BackgroundColor3 = Color3.fromRGB(250, 128, 114)
 Sniper.Position = UDim2.new(0.00934579596, 0, 0.414076805, 0)
 Sniper.Size = UDim2.new(0, 419, 0, 36)
 Sniper.Font = Enum.Font.SourceSansBold
-Sniper.Text = "    Sniper"
+Sniper.Text = "    50 BMG"
 Sniper.TextColor3 = Color3.fromRGB(255, 255, 255)
 Sniper.TextSize = 20.000
 Sniper.TextWrapped = true
@@ -1994,15 +1553,7 @@ ElioBlasio.TextSize = 20
 ElioBlasio.TextWrapped = true
 ElioBlasio.TextXAlignment = Enum.TextXAlignment.Left
 ElioBlasio.MouseButton1Down:Connect(function()
-	local success, result = pcall(function()
-		return loadstring(game:GetObjects("rbxassetid://3283229226")[1].Source)
-	end)
-
-	if success and result then
-		result()
-	else
-		warn("Failed to load or run the script:", result)
-	end
+	loadstring(game:GetObjects("rbxassetid://3283229226")[1].Source)
 end)
 
 UICorner_30.Parent = ElioBlasio
@@ -2152,23 +1703,23 @@ newTag.Font = Enum.Font.SourceSansBold
 newTag.TextSize = 20
 newTag.BorderSizePixel = 0
 
-Carnage.Name = "Carnage"
-Carnage.Parent = ScrollingFrame
-Carnage.BackgroundColor3 = Color3.fromRGB(250, 128, 114)
-Carnage.Position = UDim2.new(0.00934579782, 0, 0.520429432, 0)
-Carnage.Size = UDim2.new(0, 419, 0, 36)
-Carnage.Font = Enum.Font.SourceSansBold
-Carnage.Text = "    Carnage"
-Carnage.TextColor3 = Color3.fromRGB(255, 255, 255)
-Carnage.TextSize = 20.000
-Carnage.TextWrapped = true
-Carnage.TextXAlignment = Enum.TextXAlignment.Left
+Chillingo.Name = "Chillingo"
+Chillingo.Parent = ScrollingFrame
+Chillingo.BackgroundColor3 = Color3.fromRGB(250, 128, 114)
+Chillingo.Position = UDim2.new(0.00934579782, 0, 0.520429432, 0)
+Chillingo.Size = UDim2.new(0, 419, 0, 36)
+Chillingo.Font = Enum.Font.SourceSansBold
+Chillingo.Text = "    Chillingo"
+Chillingo.TextColor3 = Color3.fromRGB(255, 255, 255)
+Chillingo.TextSize = 20.000
+Chillingo.TextWrapped = true
+Chillingo.TextXAlignment = Enum.TextXAlignment.Left
 
-UICorner_36.Parent = Carnage
+UICorner_36.Parent = Chillingo
 
 local newTag = Instance.new("TextLabel")
 newTag.Name = "NewTag"
-newTag.Parent = Carnage
+newTag.Parent = Chillingo
 newTag.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
 newTag.Position = UDim2.new(0.85, -10, 0.1, 0)
 newTag.Size = UDim2.new(0, 55, 0, 29)
@@ -2210,7 +1761,7 @@ Demon.BackgroundColor3 = Color3.fromRGB(250, 128, 114)
 Demon.Position = UDim2.new(0.00934579782, 0, 0.565397263, 0)
 Demon.Size = UDim2.new(0, 419, 0, 36)
 Demon.Font = Enum.Font.SourceSansBold
-Demon.Text = "    Demon Claws"
+Demon.Text = "    Demon Staff"
 Demon.TextColor3 = Color3.fromRGB(255, 255, 255)
 Demon.TextSize = 20.000
 Demon.TextWrapped = true
@@ -2335,18 +1886,6 @@ Misc.TextWrapped = true
 Misc.TextXAlignment = Enum.TextXAlignment.Left
 
 UICorner_43.Parent = Misc
-
-local newTag = Instance.new("TextLabel")
-newTag.Name = "NewTag"
-newTag.Parent = Misc
-newTag.BackgroundColor3 = Color3.fromRGB(93, 93, 93)
-newTag.Position = UDim2.new(0.85, -10, 0.1, 0)
-newTag.Size = UDim2.new(0, 55, 0, 29)
-newTag.Text = "Misc"
-newTag.TextColor3 = Color3.fromRGB(255, 255, 255)
-newTag.Font = Enum.Font.SourceSansBold
-newTag.TextSize = 20
-newTag.BorderSizePixel = 0
 
 Zeroith.Name = "Zeroith"
 Zeroith.Parent = ScrollingFrame
@@ -2482,18 +2021,6 @@ Rokudayne.TextWrapped = true
 Rokudayne.TextXAlignment = Enum.TextXAlignment.Left
 
 UICorner_48.Parent = Rokudayne
-
-local newTag = Instance.new("TextLabel")
-newTag.Name = "NewTag"
-newTag.Parent = Rokudayne
-newTag.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
-newTag.Position = UDim2.new(0.85, -10, 0.1, 0)
-newTag.Size = UDim2.new(0, 55, 0, 29)
-newTag.Text = "NEW"
-newTag.TextColor3 = Color3.fromRGB(255, 255, 255)
-newTag.Font = Enum.Font.SourceSansBold
-newTag.TextSize = 20
-newTag.BorderSizePixel = 0
 
 RussainKick.Name = "RussainKick"
 RussainKick.Parent = ScrollingFrame
@@ -2905,26 +2432,21 @@ Respawn.Font = Enum.Font.SourceSansBold
 Respawn.Text = "Respawn"
 Respawn.TextColor3 = Color3.fromRGB(0, 128, 0)
 Respawn.TextSize = 30
-
-local function respawn()
-	local player = game.Players.LocalPlayer
-	local char = player.Character
-	if char and char:FindFirstChildOfClass("Humanoid") then
-		char:FindFirstChildOfClass("Humanoid"):ChangeState(2)
-	end
-	char:ClearAllChildren()
-	
-	local newChar = Instance.new("Model")
-	newChar.Parent = workspace
-	player.Character = newChar
-	wait()
-	player.Character = char
-	newChar:Destroy()
-end
-
 Respawn.MouseButton1Click:Connect(function()
 	respawn()
 end)
+
+function respawn()
+	local char = game.Players.LocalPlayer.Character
+	if char:FindFirstChildOfClass("Humanoid") then char:FindFirstChildOfClass("Humanoid"):ChangeState(2) end
+	char:ClearAllChildren()
+	local newChar = Instance.new("Model")
+	newChar.Parent = workspace
+	game.Players.LocalPlayer.Character = newChar
+	wait()
+	game.Players.LocalPlayer.Character = char
+	newChar:Destroy()
+end
 
 UICorner_69.CornerRadius = UDim.new(0, 15)
 UICorner_69.Parent = Respawn
@@ -2951,7 +2473,7 @@ AntiFling.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 AntiFling.Position = UDim2.new(0.0245891828, 0, 0.915730357, 0)
 AntiFling.Size = UDim2.new(0, 305, 0, 35)
 AntiFling.Font = Enum.Font.SourceSans
-AntiFling.Text = game.Players.LocalPlayer.Name
+AntiFling.Text = "Player"
 AntiFling.TextColor3 = Color3.fromRGB(0, 0, 0)
 AntiFling.TextSize = 25
 
@@ -3039,19 +2561,14 @@ task.spawn(function()
 	end
 end)
 
-AntiFling.Text = game.Players.LocalPlayer.Name
+local plr = game.Players.LocalPlayer
+local playerGui = plr:WaitForChild("PlayerGui")
+local Main = playerGui:WaitForChild("Main")
 
-AntiFling.FocusLost:Connect(function()
-	if AntiFling.Text == "Disable" then
-		AntiFling:Destroy()
-		return
-	end
-
-	for _, player in pairs(game.Players:GetPlayers()) do
-		if string.find(player.Name:lower(), AntiFling.Text:lower()) then
-			AntiFling.Text = player.Name
-			break
-		end
+plr.Chatted:Connect(function(msg)
+	if msg:lower() == "/open utg" then
+		wait(4.5)
+		Main.Visible = true
 	end
 end)
 
