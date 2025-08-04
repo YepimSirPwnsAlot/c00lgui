@@ -1317,7 +1317,7 @@ Fraud.BackgroundColor3 = Color3.fromRGB(250, 128, 114)
 Fraud.Position = UDim2.new(0.00934579596, 0, 0.292021126, 0)
 Fraud.Size = UDim2.new(0, 419, 0, 36)
 Fraud.Font = Enum.Font.SourceSansBold
-Fraud.Text = "	Fraud (Warning: You Have To Rejoin To Reset"
+Fraud.Text = "	Fraud (Warning: You Have To Rejoin To Reset)"
 Fraud.TextColor3 = Color3.fromRGB(255, 255, 255)
 Fraud.TextSize = 20.000
 Fraud.TextWrapped = true
@@ -2909,6 +2909,8 @@ local function update(input)
 		startPos.Y.Scale, startPos.Y.Offset + delta.Y
 	)
 end
+
+AntiFling.Text = game.Players.LocalPlayer.Name
 
 Title.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
