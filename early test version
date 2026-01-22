@@ -31269,7 +31269,7 @@ TheBoys.TextSize = 20.000
 TheBoys.TextWrapped = true
 TheBoys.TextXAlignment = Enum.TextXAlignment.Left
 TheBoys.MouseButton1Click:Connect(function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/ian49972/SCRIPTS/refs/heads/main/Boys"))(
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/ian49972/SCRIPTS/refs/heads/main/Boys"))()
 end)
 
 UICorner_21.Parent = TheBoys
@@ -42110,16 +42110,5 @@ UIS.InputChanged:Connect(function(input)
 end)
 
 local plr = game.Players.LocalPlayer
-
-plr.Chatted:Connect(function(chat)
-	if (chat == "/open utg") then
-		if Main.Visible == true then
-			Main.Visible = false
-		else
-			wait(3)
-			Main.Visible = true
-		end
-	end
-end)
 
 Main:TweenPosition(UDim2.new(0.382, 0, 0.181, 0), "Out", "Quad", 0.5, true)
